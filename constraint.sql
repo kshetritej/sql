@@ -1,7 +1,11 @@
--- Ensure that the ISBN in the Book table is unique
+-- Ensure that the ISBN in the Book table is unique (UNIQUE constraint)
 ALTER TABLE Book ADD CONSTRAINT UC_Book_ISBN UNIQUE (ISBN);
--- Ensure the fine amount is never negative
+
+-- Ensure the fine amount is never negative (CHECK constraint)
 ALTER TABLE Loan ADD CONSTRAINT CK_Loan_FineAmount CHECK (FineAmount >= 0);
 
--- Ensure that the UserType in the User table is one of the allowed types (e.g., 'Student', 'Staff', 'Lecturer').
-ALTER TABLE User ADD CONSTRAINT CK_User_UserType CHECK (UserType IN ('Student', 'Staff', 'Lecturer'));
+-- Foreign key constraint for RoomBooking (FOREIGN KEY constraint)
+ALTER TABLE RoomBooking
+ADD CONSTRAINT FK_RoomBooking_UserID
+FOREIGN KEY (UserID)
+REFERENCES User(UserID);

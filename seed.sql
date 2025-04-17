@@ -1,10 +1,14 @@
--- Authors Seed, the id is autoincremental
+-- Authors Seed, the id is auto incremental
 INSERT INTO Author (AuthorName) VALUES
 ('Jane Austen'), ('George Orwell'), ('J.R.R. Tolkien'), ('Stephen King'), ('Agatha Christie'),
 ('Ernest Hemingway'), ('Harper Lee'), ('Gabriel Garcia Marquez'), ('Leo Tolstoy'), ('Charles Dickens');
 
 
 -- Book 
+INSERT INTO Book (ISBN, Title, Description, Genre, Category) VALUES
+('9780061120084', 'Guns and Germs and Steel', 'Exploration of human history.', 'History', 'Green Tag');
+
+
 INSERT INTO Book (ISBN, Title, Description, Genre, Category) VALUES
 ('9780141439518', 'Pride and Prejudice', 'Classic romance.', 'Romance', 'Yellow Tag'),
 ('9780451524935', '1984', 'Dystopian future.', 'Science Fiction', 'Red Tag'),

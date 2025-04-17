@@ -18,7 +18,7 @@ WHERE EXISTS (
     WHERE Reservation.ISBN = Book.ISBN AND Notified = FALSE
 );
 
--- Optimization strategy 3 ( Avoiding DISTINCT whenever possible )
+-- Optimization strategy  ( Avoiding DISTINCT whenever possible )
 -- INEFFICIENT
 SELECT DISTINCT Category
 FROM Book;
@@ -27,3 +27,5 @@ FROM Book;
 SELECT Category
 FROM Book
 GROUP BY Category;
+
+SHOW STATUS LIKE "cpu%";

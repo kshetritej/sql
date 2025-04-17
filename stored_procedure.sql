@@ -1,8 +1,8 @@
 -- Get user's loan history
 DELIMITER //
-CREATE PROCEDURE GetUserLoanHistory(IN p_UserID INT)
+CREATE PROCEDURE GetUserLoanHistory2 (IN p_UserID INT)
 BEGIN
-    SELECT b.Title, l.LoanDate, l.DueDate, l.ReturnDate, l.FineAmount
+    SELECT b.Title, l.LoanDate, l.DueDate, l.ReturnDate, l.FineAmount, l.`UserID`
     FROM Loan l
     JOIN BookCopy bc ON l.CopyID = bc.CopyID
     JOIN Book b ON bc.ISBN = b.ISBN
@@ -10,6 +10,8 @@ BEGIN
     ORDER BY l.LoanDate DESC;
 END //
 DELIMITER ;
+
+CALL GetUserLoanHistory2(2);
 
 -- Get Available Book Copies
 DELIMITER //
